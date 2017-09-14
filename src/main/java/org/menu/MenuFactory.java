@@ -1,21 +1,24 @@
 package org.menu;
 
+import java.util.Optional;
+
 public class MenuFactory {
 
-    static Menu getMenu(int x){
-       Menu menu = null;
+    public static Optional<Menu> getMenu(int x){
+       Optional<Menu> menu = null;
 
         switch(x){
             case(1):
-                menu = new PolishMenu();
+                menu = Optional.of(new PolishMenu());
                 break;
             case(2):
-                menu = new ItalianMenu();
+                menu = Optional.of(new ItalianMenu());
                 break;
             case(3):
-                menu = new MexicanMenu();
+                menu = Optional.of(new MexicanMenu());
                 break;
             default:
+                menu = Optional.empty();
                 System.out.println("Invalid number!");
                 break;
         }
