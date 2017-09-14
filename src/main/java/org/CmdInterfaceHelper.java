@@ -2,7 +2,6 @@ package org;
 
 import org.meals.Drink;
 import org.meals.Meal;
-import org.menu.DessertMenu;
 import org.menu.DrinkMenu;
 import org.menu.Menu;
 import org.menu.MenuFactory;
@@ -57,19 +56,33 @@ public class CmdInterfaceHelper {
         Scanner scanner = new Scanner(System.in);
         Drink drink = (Drink) drinks.get(scanner.nextInt()-1);
 
-        System.out.println("Do you want extra lemon? Press y/n");
-        char lemon = scanner.nextLine().charAt(0);
-        if("y".equals(lemon)){
-            drink.setLemon(true);
-        }
-        System.out.println("Do you want extra ice? Press y/n");
-        char ice = scanner.nextLine().charAt(0);
-        if("y".equals(ice)){
-            drink.setIce(true);
-        }
+
         return drink;
     }
 
+    public Drink addLemon(Drink drink){
+        System.out.println("Do you want extra lemon? Press y/n");
+        Scanner scanner = new Scanner(System.in);
+        String lemon = scanner.nextLine();
+        if(lemon.equals("y")){
+            drink.setLemon(true);
+            System.out.println("Lemon added");
+        }else if(lemon.equals("n")){
+            drink.setLemon(false);
+        }
+        return drink;
+    }
+    public Drink addIce(Drink drink){
+        System.out.println("Do you want extra ice? Press y/n");
+        Scanner scanner = new Scanner(System.in);
+        String ice = scanner.nextLine();
+        if(ice.equals("y")){
+            drink.setIce(true);
+        }else if(ice.equals("n")){
+            drink.setIce(false);
+        }
+        return drink;
+    }
 
     public void sumUpOrder(List<Meal> orderedMeals){
         System.out.println("You ordered: ");

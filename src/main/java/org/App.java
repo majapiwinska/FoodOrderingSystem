@@ -24,6 +24,8 @@ public class App {
             cmdHelper.sumUpOrder(orderedMeals);
         } else if (tmp == 2) {
             Drink drink = cmdHelper.chooseDrink();
+            cmdHelper.addLemon(drink);
+            cmdHelper.addIce(drink);
             orderedMeals.add(drink);
             cmdHelper.sumUpOrder(orderedMeals);
         } else
