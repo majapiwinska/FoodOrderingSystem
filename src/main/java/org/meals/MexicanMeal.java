@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public class MexicanMeal implements Meal {
 
-    private String name;
-    private BigDecimal price;
+    private final String name;
+    private final BigDecimal price;
 
     public MexicanMeal(String name, BigDecimal price) {
         this.name = name;

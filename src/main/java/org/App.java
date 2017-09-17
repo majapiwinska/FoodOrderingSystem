@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class App {
+
     public static void main(String[] args) {
+
         CmdInterfaceHelper cmdHelper = new CmdInterfaceHelper();
         Order order = new Order(new ArrayList<>());
         List<Meal> orderedMeals = order.getMeals();
-        int tmp = cmdHelper.order();
+        int tmp = cmdHelper.chooseLunchOrDrink();
 
         if (tmp == 1) {
             Menu menu = cmdHelper.chooseMenuType();
@@ -21,17 +23,15 @@ public class App {
             orderedMeals.add(meal);
             Meal dessert = cmdHelper.chooseMeal(new DessertMenu());
             orderedMeals.add(dessert);
-            cmdHelper.sumUpOrder(orderedMeals);
         } else if (tmp == 2) {
             Drink drink = cmdHelper.chooseDrink();
             cmdHelper.addLemon(drink);
             cmdHelper.addIce(drink);
             orderedMeals.add(drink);
-            cmdHelper.sumUpOrder(orderedMeals);
-        } else
+        } else {
             System.out.println("Invalid choice");
-
-
+            return;
+        }
+        cmdHelper.sumUpOrder(orderedMeals);
     }
-
 }

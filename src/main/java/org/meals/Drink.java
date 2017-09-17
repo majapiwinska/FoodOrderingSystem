@@ -1,12 +1,11 @@
 package org.meals;
 
-import org.menu.Menu;
-
 import java.math.BigDecimal;
 
 public class Drink implements Meal {
-    private String name;
-    private BigDecimal price;
+
+    private final String name;
+    private final BigDecimal price;
     private boolean lemon;
     private boolean ice;
 
