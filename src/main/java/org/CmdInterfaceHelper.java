@@ -13,7 +13,6 @@ import java.util.Scanner;
 
 public class CmdInterfaceHelper {
 
-    // todo
     public int chooseLunchOrDrink() {
         System.out.println("Hello, to chooseLunchOrDrink lunch press 1, to chooseLunchOrDrink drink press 2");
         Scanner scanner = new Scanner(System.in);
@@ -90,10 +89,10 @@ public class CmdInterfaceHelper {
         System.out.println("You ordered: ");
         orderedMeals.stream().forEach(e -> System.out.println(e.getName() + " " + e.getPrice().toString() + " zł"));
         BigDecimal totalValue = new BigDecimal(0);
-        //TODO: total value jest 0
-
-        orderedMeals.stream().forEach(e -> totalValue.add(e.getPrice()));
-        System.out.println("Total value of your chooseLunchOrDrink is: " + totalValue.toString());
+        for(Meal meal: orderedMeals){
+            totalValue = totalValue.add(meal.getPrice());
+        }
+        System.out.println("Total value of your order is : " + totalValue.toString());
 
     }
 }
